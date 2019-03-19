@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Orleans.MultiClient\Orleans.MultiClient.csproj" />
+    <ProjectReference Include="..\Orleans.Grain2\Orleans.Grain2.csproj" />
+    <ProjectReference Include="..\Orleans.Grain\Orleans.Grain.csproj" />
+  </ItemGroup>
+
+</Project>
