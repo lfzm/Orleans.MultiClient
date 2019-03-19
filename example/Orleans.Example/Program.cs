@@ -30,7 +30,7 @@ namespace Orleans.Example
                 {
                     opt.ServiceId = "dev2";
                     opt.ClusterId = "HelloWorldApp2";
-                    opt.ServiceName = "Orleans.Grain2"; ;
+                    opt.SetServiceName("Orleans.Grain2");
                     opt.Configure = (b =>
                     {
                         b.UseLocalhostClustering(gatewayPort: 30001);

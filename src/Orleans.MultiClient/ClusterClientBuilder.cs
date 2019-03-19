@@ -11,18 +11,20 @@ namespace Orleans.MultiClient
     {
         private readonly OrleansClientOptions _options;
         private readonly ILogger _logger;
+        private readonly string _serviceName;
 
-        public ClusterClientBuilder(IServiceProvider serviceProvider, OrleansClientOptions options)
+        public ClusterClientBuilder(IServiceProvider serviceProvider, OrleansClientOptions options,string serviceName)
         {
             this._logger = serviceProvider.GetRequiredService<ILogger<ClusterClientBuilder>>();
             this._options = options;
+            this._serviceName = serviceName;
         }
         public IClusterClient Build()
         {
             IClientBuilder build = new ClientBuilder();
             if (_options.Configure == null)
             {
-                _logger.LogError($"{_options.ServiceName} There is no way to connect to Orleans, please configure it in OrleansClientOptions.Configure");
+                _logger.LogError($"{_serviceName} There is no way to connect to Orleans, please configure it in OrleansClientOptions.Configure");
             }
             _options.Configure(build);
             build.Configure<ClusterOptions>(opt =>
@@ -34,7 +36,7 @@ namespace Orleans.MultiClient
             });
 
             var client = build.Build();
-            return this.ConnectClient(_options.ServiceName, client);
+            return this.ConnectClient(_serviceName, client);
         }
 
         private IClusterClient ConnectClient(string serviceName, IClusterClient client)

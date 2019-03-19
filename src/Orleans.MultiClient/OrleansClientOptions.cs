@@ -7,13 +7,35 @@ namespace Orleans.MultiClient
 {
     public class OrleansClientOptions
     {
+        public OrleansClientOptions()
+        {
+            ServiceList = new List<string>();
+        }
+        public IList<string> ServiceList { get; set; }
         public string ServiceId { get; set; }
         public string ClusterId { get; set; }
-        public string ServiceName { get;  set; }
         public Action<IClientBuilder> Configure { get; set; }
-        public void SetServiceAssembly(Assembly assembly)
+        public void SetServiceAssembly(params Assembly[] assemblys)
         {
-            this.ServiceName = assembly.GetName().Name;
+            foreach (var assembly in assemblys)
+            {
+                var name = assembly.GetName().Name;
+                if (!this.ServiceList.Contains(name))
+                {
+                    this.ServiceList.Add(name);
+                }
+            }
+        }
+
+        public void SetServiceName(params string[] names)
+        {
+            foreach (var name in names)
+            {
+                if (!this.ServiceList.Contains(name))
+                {
+                    this.ServiceList.Add(name);
+                }
+            }
         }
         internal bool ExistAssembly(string serviceName)
         {

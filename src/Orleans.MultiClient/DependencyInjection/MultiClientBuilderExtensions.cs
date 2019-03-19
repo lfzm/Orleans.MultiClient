@@ -23,13 +23,16 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 options.Configure = builder.OrleansConfigure;
             }
-            if (!options.ExistAssembly(options.ServiceName))
-                throw new ArgumentNullException($"{options.ServiceName} service does not exist in the assembly");
-
-            builder.Services.AddSingletonNamedService<IClusterClientBuilder>(options.ServiceName.ToLower(), (sp, key) =>
+            foreach (var serviceName in options.ServiceList)
             {
-                return new ClusterClientBuilder(sp, options);
-            });
+                if (!options.ExistAssembly(serviceName))
+                    throw new ArgumentNullException($"{serviceName} service does not exist in the assembly");
+
+                builder.Services.AddSingletonNamedService<IClusterClientBuilder>(serviceName.ToLower(), (sp, key) =>
+                {
+                    return new ClusterClientBuilder(sp, options, key);
+                });
+            }
             return builder;
         }
         public static IMultiClientBuilder AddClient(this IMultiClientBuilder builder, IConfiguration config)
