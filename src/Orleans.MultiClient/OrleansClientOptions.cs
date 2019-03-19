@@ -15,6 +15,7 @@ namespace Orleans.MultiClient
         public string ServiceId { get; set; }
         public string ClusterId { get; set; }
         public Action<IClientBuilder> Configure { get; set; }
+
         public void SetServiceAssembly(params Assembly[] assemblys)
         {
             foreach (var assembly in assemblys)
@@ -27,16 +28,6 @@ namespace Orleans.MultiClient
             }
         }
 
-        public void SetServiceName(params string[] names)
-        {
-            foreach (var name in names)
-            {
-                if (!this.ServiceList.Contains(name))
-                {
-                    this.ServiceList.Add(name);
-                }
-            }
-        }
         internal bool ExistAssembly(string serviceName)
         {
             //获取所有的程序集

@@ -9,7 +9,7 @@ namespace Orleans.Grains2
     /// <summary>
     /// Orleans grain implementation class HelloGrain.
     /// </summary>
-    public class HelloGrain2 : Grain, IHello2
+    public class HelloGrain2 : Grain, IHelloB
     {
         private readonly ILogger logger;
 

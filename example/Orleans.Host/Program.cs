@@ -41,8 +41,8 @@ namespace Orleans.Host
                 .UseLocalhostClustering()
                 .Configure<ClusterOptions>(options =>
                 {
-                    options.ClusterId = "dev";
-                    options.ServiceId = "HelloWorldApp";
+                    options.ClusterId = "A";
+                    options.ServiceId = "AApp";
                 })
                 .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())

@@ -40,8 +40,8 @@ namespace Orleans.Host2
                 .UseLocalhostClustering(siloPort:11112,gatewayPort:30001)
                 .Configure<ClusterOptions>(options =>
                 {
-                    options.ClusterId = "dev2";
-                    options.ServiceId = "HelloWorldApp2";
+                    options.ClusterId = "B";
+                    options.ServiceId = "BApp";
                 })
                 .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain2).Assembly).WithReferences())

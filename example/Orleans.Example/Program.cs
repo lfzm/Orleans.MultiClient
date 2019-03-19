@@ -16,21 +16,21 @@ namespace Orleans.Example
             services.AddLogging();
             services.AddOrleansMultiClient(build =>
             {
-                build.Configure(b =>
+                build.AddClient(opt =>
                 {
-                    b.UseLocalhostClustering();
+                    opt.ServiceId = "A";
+                    opt.ClusterId = "AApp";
+                    opt.SetServiceAssembly(typeof(IHelloA).Assembly);
+                    opt.Configure = (b =>
+                    {
+                        b.UseLocalhostClustering();
+                    });
                 });
                 build.AddClient(opt =>
                 {
-                    opt.ServiceId = "dev";
-                    opt.ClusterId = "HelloWorldApp";
-                    opt.SetServiceAssembly(typeof(IHello).Assembly);
-                });
-                build.AddClient(opt =>
-                {
-                    opt.ServiceId = "dev2";
-                    opt.ClusterId = "HelloWorldApp2";
-                    opt.SetServiceName("Orleans.Grain2");
+                    opt.ServiceId = "B";
+                    opt.ClusterId = "BApp";
+                    opt.SetServiceAssembly(typeof(IHelloB).Assembly);
                     opt.Configure = (b =>
                     {
                         b.UseLocalhostClustering(gatewayPort: 30001);
@@ -38,10 +38,10 @@ namespace Orleans.Example
                 });
             });
 
-            var service = services.BuildServiceProvider().GetRequiredService<IOrleansClient>().GetGrain<IHello>(1);
+            var service = services.BuildServiceProvider().GetRequiredService<IOrleansClient>().GetGrain<IHelloA>(1);
             var result1 = service.SayHello("Hello World Success Grain1").GetAwaiter().GetResult();
 
-            var service2 = services.BuildServiceProvider().GetRequiredService<IOrleansClient>().GetGrain<IHello2>(1);
+            var service2 = services.BuildServiceProvider().GetRequiredService<IOrleansClient>().GetGrain<IHelloB>(1);
             var result2 = service2.SayHello("Hello World Success Grain2").GetAwaiter().GetResult();
             Console.WriteLine("dev1:" + result1);
             Console.WriteLine("dev2:" + result2);
