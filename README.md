@@ -2,6 +2,8 @@
 
 ---
 
+[![NuGet](https://img.shields.io/nuget/v/Orleans.MultiClient.svg?style=flat)](http://www.nuget.org/packages/Orleans.MultiClient)
+
 ## 介绍
 `Orleans.MultiClient` 是一个 Orleans 复合客户端，只需要简单配置就可以简单高效连接和请求 Orleans 服务。
 `Orleans.MultiClient` 可以轻松连接多个不同服务的 Orleans 服务,在请求 Orleans 时会根据请求的接口自动寻找 Orleans 客户端，使用者无需关心底层的实现。
