@@ -1,9 +1,6 @@
 # Orleans MultiClient 多个Silo复合客户端
 
-Tags： Orleans
-
 ---
-[TOC]
 
 ## 介绍
 `Orleans.MultiClient` 是一个 Orleans 复合客户端，只需要简单配置就可以简单高效连接和请求 Orleans 服务。
