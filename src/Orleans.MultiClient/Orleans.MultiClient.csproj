@@ -3,6 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>阿凌</Authors>
+    <Company>阿凌</Company>
+    <Description>Orleans' Multi Client</Description>
+    <PackageLicenseUrl>https://github.com/AClumsy/Orleans.MultiClient/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/AClumsy/Orleans.MultiClient</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/dotnet/orleans/gh-pages/assets/logo_128.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/AClumsy/Orleans.MultiClient</RepositoryUrl>
+    <RepositoryType></RepositoryType>
+    <PackageTags>Orleans MultiClient Client</PackageTags>
+    <Version>2.2.4-rc1</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
