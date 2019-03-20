@@ -15,7 +15,7 @@
 
 从 `NuGet` 下载 `Orleans.MultiClient` 包。
 ```
-
+dotnet add package Orleans.MultiClient
 ```
 
 ### 简单例子
