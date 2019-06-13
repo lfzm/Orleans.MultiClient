@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Orleans.Runtime;
 
 namespace Orleans.MultiClient
 {
@@ -11,6 +13,16 @@ namespace Orleans.MultiClient
         {
             _serviceProvider = serviceProvider;
             _clusterClientFactory = clusterClientFactory;
+        }
+
+        public Task<TGrainObserverInterface> CreateObjectReference<TGrainObserverInterface>(IGrainObserver obj) where TGrainObserverInterface : IGrainObserver
+        {
+            return _clusterClientFactory.Create<TGrainObserverInterface>().CreateObjectReference<TGrainObserverInterface>(obj);
+        }
+
+        public Task DeleteObjectReference<TGrainObserverInterface>(IGrainObserver obj) where TGrainObserverInterface : IGrainObserver
+        {
+            return _clusterClientFactory.Create<TGrainObserverInterface>().DeleteObjectReference<TGrainObserverInterface>(obj);
         }
 
         public TGrainInterface GetGrain<TGrainInterface>(Guid primaryKey, string grainClassNamePrefix = null) where TGrainInterface : IGrainWithGuidKey
@@ -37,6 +49,6 @@ namespace Orleans.MultiClient
             return _clusterClientFactory.Create<TGrainInterface>().GetGrain<TGrainInterface>(primaryKey, keyExtension, grainClassNamePrefix);
         }
 
-       
+
     }
 }

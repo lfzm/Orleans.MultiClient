@@ -2,6 +2,6 @@
 {
     public interface IClusterClientFactory
     {
-        IClusterClient Create<TGrainInterface>();
+        IGrainFactory Create<TGrainInterface>();
     }
 }
