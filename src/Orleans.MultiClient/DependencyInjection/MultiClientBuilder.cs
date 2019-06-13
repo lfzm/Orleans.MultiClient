@@ -18,7 +18,7 @@ namespace Orleans.MultiClient.DependencyInjection
         {
             this.Services.AddSingleton(typeof(IKeyedServiceCollection<,>), typeof(KeyedServiceCollection<,>));
             this.Services.AddSingleton<IClusterClientFactory, MultiClusterClientFactory>();
-            this.Services.AddSingleton<IOrleansClient, OrleansClient>();
+            this.Services.AddTransient<IOrleansClient, OrleansClient>();
         }
     }
 }
