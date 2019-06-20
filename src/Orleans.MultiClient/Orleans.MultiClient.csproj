@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/AClumsy/Orleans.MultiClient</RepositoryUrl>
     <RepositoryType></RepositoryType>
     <PackageTags>Orleans MultiClient Client</PackageTags>
-    <Version>2.3.4</Version>
+    <Version>2.3.5</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 

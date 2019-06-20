@@ -49,7 +49,7 @@ namespace Orleans.MultiClient
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Connection {serviceName} Faile...", ex);
+                _logger.LogError(ex,$"Connection {serviceName} Faile...");
                 throw new Exception($"Connection {serviceName} Faile...");
             }
         }
@@ -59,11 +59,11 @@ namespace Orleans.MultiClient
         {
             if (exception.GetType() != typeof(SiloUnavailableException))
             {
-                _logger.LogError($"Cluster client failed to connect to cluster with unexpected error.  Exception: {exception}");
+                _logger.LogError(exception,$"Cluster client failed to connect to cluster with unexpected error. ");
                 return false;
             }
             attempt++;
-            _logger.LogError($"Cluster client attempt {attempt} of {10} failed to connect to cluster.  Exception: {exception}");
+            _logger.LogError(exception,$"Cluster client attempt {attempt} of {10} failed to connect to cluster.");
             if (attempt > 10)
             {
                 return false;
