@@ -19,7 +19,15 @@ namespace Orleans.MultiClient
             return clusterClientCache.GetOrAdd(name, (key) =>
             {
                 string serviceName = typeof(TGrainInterface).Assembly.GetName().Name.ToLower();
-                return this._serviceProvider.GetRequiredServiceByName<IClusterClientBuilder>(serviceName).Build();
+                IClusterClient client = this._serviceProvider.GetRequiredServiceByName<IClusterClientBuilder>(serviceName).Build();
+                if (client.IsInitialized)
+                {
+                    return client;
+                }
+                else
+                {
+                    throw new Exception("not tnitialized clusterClient");
+                }
 
             });
         }

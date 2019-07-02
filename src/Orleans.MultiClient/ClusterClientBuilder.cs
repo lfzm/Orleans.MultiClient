@@ -43,7 +43,11 @@ namespace Orleans.MultiClient
         {
             try
             {
-                client.Connect(RetryFilter).Wait();
+                var res = client.Connect(RetryFilter).Wait(TimeSpan.FromSeconds(10));
+                if (!res)
+                {
+                    throw new Exception($"Connection {serviceName} timeout...");
+                }
                 _logger.LogDebug($"Connection {serviceName} Sucess...");
                 return client;
             }
