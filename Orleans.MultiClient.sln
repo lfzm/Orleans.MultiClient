@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29111.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.MultiClient", "src\Orleans.MultiClient\Orleans.MultiClient.csproj", "{04493B45-81E5-49F8-9CD5-914D52864704}"
 EndProject
@@ -9,15 +9,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{92788A18-295
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{A9738E2A-0CAD-4ABA-A368-4ABDB56A6E0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Example", "example\Orleans.Example\Orleans.Example.csproj", "{C7571F58-0AD4-41C5-8072-4CA07FB5EB32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.Example", "example\Orleans.Example\Orleans.Example.csproj", "{C7571F58-0AD4-41C5-8072-4CA07FB5EB32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Host", "example\Orleans.Host\Orleans.Host.csproj", "{27E47CD2-6AD7-442D-B94E-B33B196C48A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.Host", "example\Orleans.Host\Orleans.Host.csproj", "{27E47CD2-6AD7-442D-B94E-B33B196C48A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Grain", "example\Orleans.Grain\Orleans.Grain.csproj", "{B540D7B0-3565-4F18-AA2B-290367EC571A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.Grain", "example\Orleans.Grain\Orleans.Grain.csproj", "{B540D7B0-3565-4F18-AA2B-290367EC571A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Grain2", "example\Orleans.Grain2\Orleans.Grain2.csproj", "{D7D98B51-5B86-4C45-BF31-27A48B4D99E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.Grain2", "example\Orleans.Grain2\Orleans.Grain2.csproj", "{D7D98B51-5B86-4C45-BF31-27A48B4D99E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Host2", "example\Orleans.Host2\Orleans.Host2.csproj", "{2CBDD05F-C056-4EED-9167-5110EABB893D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.Host2", "example\Orleans.Host2\Orleans.Host2.csproj", "{2CBDD05F-C056-4EED-9167-5110EABB893D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CB5FF92-9B8A-4F55-934F-32A87680731D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

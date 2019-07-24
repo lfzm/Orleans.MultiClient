@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 
 namespace Orleans.MultiClient.DependencyInjection
 {
@@ -8,7 +9,7 @@ namespace Orleans.MultiClient.DependencyInjection
         IServiceCollection Services { get;  }
 
          Action<IClientBuilder> OrleansConfigure { get; set; }
-
+         IList<OrleansClientOptions> ClientOptions { get; set; }
         void Build();
     }
 }

@@ -19,20 +19,10 @@ namespace Microsoft.Extensions.DependencyInjection
         }
         public static IMultiClientBuilder AddClient(this IMultiClientBuilder builder, OrleansClientOptions options)
         {
-            if (options.Configure == null)
-            {
-                options.Configure = builder.OrleansConfigure;
-            }
-            foreach (var serviceName in options.ServiceList)
-            {
-                if (!options.ExistAssembly(serviceName))
-                    throw new ArgumentNullException($"{serviceName} service does not exist in the assembly");
+          
+            builder.ClientOptions.Add(options);
 
-                builder.Services.AddSingletonNamedService<IClusterClientBuilder>(serviceName.ToLower(), (sp, key) =>
-                {
-                    return new ClusterClientBuilder(sp, options, key);
-                });
-            }
+         
             return builder;
         }
         public static IMultiClientBuilder AddClient(this IMultiClientBuilder builder, IConfiguration config)
