@@ -15,11 +15,11 @@ namespace Orleans.MultiClient
 
         public IGrainFactory Create<TGrainInterface>()
         {
-            var name = typeof(TGrainInterface).FullName;
+            var name = typeof(TGrainInterface).Assembly.FullName;
+
             return clusterClientCache.GetOrAdd(name, (key) =>
             {
-                string serviceName = typeof(TGrainInterface).Assembly.GetName().Name.ToLower();
-                IClusterClient client = this._serviceProvider.GetRequiredServiceByName<IClusterClientBuilder>(serviceName).Build();
+                IClusterClient client = this._serviceProvider.GetRequiredServiceByName<IClusterClientBuilder>(key).Build();
                 if (client.IsInitialized)
                 {
                     return client;
@@ -28,7 +28,6 @@ namespace Orleans.MultiClient
                 {
                     throw new Exception("not tnitialized clusterClient");
                 }
-
             });
         }
     }

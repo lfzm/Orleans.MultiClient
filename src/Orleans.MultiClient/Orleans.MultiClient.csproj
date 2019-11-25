@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/lfzm/Orleans.MultiClient</RepositoryUrl>
     <RepositoryType></RepositoryType>
     <PackageTags>Orleans MultiClient Client</PackageTags>
-    <Version>3.0.0</Version>
+    <Version>3.0.1-bate1</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
