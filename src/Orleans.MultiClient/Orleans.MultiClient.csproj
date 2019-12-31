@@ -12,12 +12,12 @@
     <RepositoryUrl>https://github.com/lfzm/Orleans.MultiClient</RepositoryUrl>
     <RepositoryType></RepositoryType>
     <PackageTags>Orleans MultiClient Client</PackageTags>
-    <Version>2.4.4</Version>
+    <Version>2.4.5</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Orleans.Client" Version="2.4.4" />
+    <PackageReference Include="Microsoft.Orleans.Client" Version="2.4.5" />
   </ItemGroup>
 
 </Project>
