@@ -53,8 +53,7 @@ namespace Orleans.MultiClient
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex,$"Connection {serviceName} Faile...");
-                throw new Exception($"Connection {serviceName} Faile...");
+                throw new Exception($"Connection {serviceName} Faile...", ex);
             }
         }
 
