@@ -1,6 +1,6 @@
-# Orleans MultiClient 多个Silo复合客户端
+# Orleans MultiClient  　　　　　　　　　　　　　　　　　 [English](https://github.com/lfzm/Orleans.MultiClient/blob/master/README.md)
 
----
+
 
 [![NuGet](https://img.shields.io/nuget/v/Orleans.MultiClient.svg?style=flat)](http://www.nuget.org/packages/Orleans.MultiClient)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/dotnetcore/CAP/master/LICENSE.txt)
